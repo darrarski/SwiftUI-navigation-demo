@@ -15,7 +15,7 @@ struct DemoView: View {
   var body: some View {
     NavigationView {
       FirstView($state.firstState)
-    }
+    }.navigationViewStyle(StackNavigationViewStyle())
   }
 }
 
