@@ -8,7 +8,13 @@ struct Demo_SwiftUI_View: View {
     NavigationView {
       List {
         NavigationLink(
-          destination: SecondView(),
+          destination: Group {
+            if self.isPresentingSecondView {
+              SecondView()
+            } else {
+              EmptyView()
+            }
+          },
           isActive: .init(get: {
             self.isPresentingSecondView
           }, set: { isActive in
@@ -29,7 +35,13 @@ private struct SecondView: View {
   var body: some View {
     List {
       NavigationLink(
-        destination: ThirdView(),
+        destination: Group {
+          if self.isPresentingThirdView {
+            ThirdView()
+          } else {
+            EmptyView()
+          }
+        },
         isActive: .init(get: {
           self.isPresentingThirdView
         }, set: { isActive in
@@ -49,7 +61,13 @@ private struct ThirdView: View {
   var body: some View {
     List {
       NavigationLink(
-        destination: FourthView(),
+        destination: Group {
+          if self.isPresentingFourthView {
+            FourthView()
+          } else {
+            EmptyView()
+          }
+        },
         isActive: .init(get: {
           self.isPresentingFourthView
         }, set: { isActive in
