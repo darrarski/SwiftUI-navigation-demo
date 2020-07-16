@@ -2,24 +2,32 @@ import SwiftUI
 import os.log
 
 struct Demo_SwiftUI_View: View {
-  @State private var isPresentingSecondView = false
+  struct ViewState {
+    var secondState: SecondView.ViewState?
+  }
+
+  @State private var viewState: ViewState
+
+  init(_ viewState: ViewState) {
+    self._viewState = State(initialValue: viewState)
+  }
 
   var body: some View {
     NavigationView {
       List {
         NavigationLink(
           destination: Group {
-            if self.isPresentingSecondView {
-              SecondView()
+            if self.viewState.secondState != nil {
+              SecondView(self.viewState.secondState!)
             } else {
               EmptyView()
             }
           },
           isActive: .init(get: {
-            self.isPresentingSecondView
+            self.viewState.secondState != nil
           }, set: { isActive in
             os_log("Demo_SwiftUI_View.isPresentingSecondView = %@", "\(isActive)")
-            self.isPresentingSecondView = isActive
+            self.viewState.secondState = isActive ? .init() : nil
           }),
           label: { Text("Second View") }
         )
@@ -29,24 +37,32 @@ struct Demo_SwiftUI_View: View {
   }
 }
 
-private struct SecondView: View {
-  @State private var isPresentingThirdView = false
+struct SecondView: View {
+  struct ViewState {
+    var thirdState: ThirdView.ViewState?
+  }
+
+  @State private var viewState: ViewState
+
+  init(_ viewState: ViewState) {
+    self._viewState = State(initialValue: viewState)
+  }
 
   var body: some View {
     List {
       NavigationLink(
         destination: Group {
-          if self.isPresentingThirdView {
-            ThirdView()
+          if self.viewState.thirdState != nil {
+            ThirdView(self.viewState.thirdState!)
           } else {
             EmptyView()
           }
         },
         isActive: .init(get: {
-          self.isPresentingThirdView
+          self.viewState.thirdState != nil
         }, set: { isActive in
           os_log("SecondView.isPresentingThirdView = %@", "\(isActive)")
-          self.isPresentingThirdView = isActive
+          self.viewState.thirdState = isActive ? .init() : nil
         }),
         label: { Text("Third View") }
       )
@@ -55,24 +71,32 @@ private struct SecondView: View {
   }
 }
 
-private struct ThirdView: View {
-  @State private var isPresentingFourthView = false
+struct ThirdView: View {
+  struct ViewState {
+    var fourthState: FourthView.ViewState?
+  }
+
+  init(_ viewState: ViewState) {
+    self._viewState = State(initialValue: viewState)
+  }
+
+  @State private var viewState: ViewState
 
   var body: some View {
     List {
       NavigationLink(
         destination: Group {
-          if self.isPresentingFourthView {
-            FourthView()
+          if self.viewState.fourthState != nil {
+            FourthView(self.viewState.fourthState!)
           } else {
             EmptyView()
           }
         },
         isActive: .init(get: {
-          self.isPresentingFourthView
+          self.viewState.fourthState != nil
         }, set: { isActive in
           os_log("ThirdView.isPresentingFourthView = %@", "\(isActive)")
-          self.isPresentingFourthView = isActive
+          self.viewState.fourthState = isActive ? .init() : nil
         }),
         label: { Text("Fourth View") }
       )
@@ -81,7 +105,15 @@ private struct ThirdView: View {
   }
 }
 
-private struct FourthView: View {
+struct FourthView: View {
+  struct ViewState {}
+
+  @State private var viewState: ViewState
+
+  init(_ viewState: ViewState) {
+    self._viewState = State(initialValue: viewState)
+  }
+
   var body: some View {
     List {
       EmptyView()
@@ -93,7 +125,7 @@ private struct FourthView: View {
 #if DEBUG
 struct Demo_SwiftUI_Previews: PreviewProvider {
   static var previews: some View {
-    Demo_SwiftUI_View()
+    Demo_SwiftUI_View(.init())
   }
 }
 #endif
