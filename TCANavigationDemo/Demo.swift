@@ -41,7 +41,7 @@ struct FirstView: View {
         isActive: .init(get: {
           self.state.secondState != nil
         }, set: { isActive in
-          os_log("[First] → [Second] is active: %@", "\(isActive)")
+          os_log("[First] → [Second] is active: %@", isActive ? "✅" : "❌")
           self.state.secondState = isActive ? .init() : nil
         }),
         label: { Text("Second") }
@@ -77,7 +77,7 @@ struct SecondView: View {
         isActive: .init(get: {
           self.state.thirdState != nil
         }, set: { isActive in
-          os_log("[Second] → [Third] is active: %@", "\(isActive)")
+          os_log("[Second] → [Third] is active: %@", isActive ? "✅" : "❌")
           self.state.thirdState = isActive ? .init() : nil
         }),
         label: { Text("Third") }
@@ -113,7 +113,7 @@ struct ThirdView: View {
         isActive: .init(get: {
           self.state.fourthState != nil
         }, set: { isActive in
-          os_log("[Third] → [Fourth] is active: %@", "\(isActive)")
+          os_log("[Third] → [Fourth] is active: %@", isActive ? "✅" : "❌")
           self.state.fourthState = isActive ? .init() : nil
         }),
         label: { Text("Fourth") }
