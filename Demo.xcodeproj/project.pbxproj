@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		31203FE424BFCD4E00B588AE /* TCANavigationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCANavigationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31203FE424BFCD4E00B588AE /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31203FE724BFCD4E00B588AE /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		31203FED24BFCD4E00B588AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31203FF324BFCD4E00B588AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		31203FDB24BFCD4E00B588AE = {
 			isa = PBXGroup;
 			children = (
-				31203FE624BFCD4E00B588AE /* TCANavigationDemo */,
+				31203FE624BFCD4E00B588AE /* DemoApp */,
 				31203FE524BFCD4E00B588AE /* Products */,
 			);
 			indentWidth = 2;
@@ -48,12 +48,12 @@
 		31203FE524BFCD4E00B588AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				31203FE424BFCD4E00B588AE /* TCANavigationDemo.app */,
+				31203FE424BFCD4E00B588AE /* DemoApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		31203FE624BFCD4E00B588AE /* TCANavigationDemo */ = {
+		31203FE624BFCD4E00B588AE /* DemoApp */ = {
 			isa = PBXGroup;
 			children = (
 				31203FE724BFCD4E00B588AE /* Application.swift */,
@@ -62,15 +62,15 @@
 				31203FF524BFCD4E00B588AE /* Info.plist */,
 				31203FF224BFCD4E00B588AE /* LaunchScreen.storyboard */,
 			);
-			path = TCANavigationDemo;
+			path = DemoApp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		31203FE324BFCD4E00B588AE /* TCANavigationDemo */ = {
+		31203FE324BFCD4E00B588AE /* DemoApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 31203FF824BFCD4E00B588AE /* Build configuration list for PBXNativeTarget "TCANavigationDemo" */;
+			buildConfigurationList = 31203FF824BFCD4E00B588AE /* Build configuration list for PBXNativeTarget "DemoApp" */;
 			buildPhases = (
 				31203FE024BFCD4E00B588AE /* Sources */,
 				31203FE124BFCD4E00B588AE /* Frameworks */,
@@ -80,12 +80,12 @@
 			);
 			dependencies = (
 			);
-			name = TCANavigationDemo;
+			name = DemoApp;
 			packageProductDependencies = (
 				31203FFC24BFCD7D00B588AE /* ComposableArchitecture */,
 			);
 			productName = TCANavigationDemo;
-			productReference = 31203FE424BFCD4E00B588AE /* TCANavigationDemo.app */;
+			productReference = 31203FE424BFCD4E00B588AE /* DemoApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -103,7 +103,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 31203FDF24BFCD4E00B588AE /* Build configuration list for PBXProject "TCANavigationDemo" */;
+			buildConfigurationList = 31203FDF24BFCD4E00B588AE /* Build configuration list for PBXProject "Demo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -119,7 +119,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				31203FE324BFCD4E00B588AE /* TCANavigationDemo */,
+				31203FE324BFCD4E00B588AE /* DemoApp */,
 			);
 		};
 /* End PBXProject section */
@@ -287,12 +287,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P38XW29864;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = TCANavigationDemo/Info.plist;
+				INFOPLIST_FILE = DemoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pl.darrarski.TCANavigationDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.darrarski.SwiftUINavigationDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -306,12 +306,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P38XW29864;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = TCANavigationDemo/Info.plist;
+				INFOPLIST_FILE = DemoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = pl.darrarski.TCANavigationDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.darrarski.SwiftUINavigationDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -321,7 +321,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		31203FDF24BFCD4E00B588AE /* Build configuration list for PBXProject "TCANavigationDemo" */ = {
+		31203FDF24BFCD4E00B588AE /* Build configuration list for PBXProject "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				31203FF624BFCD4E00B588AE /* Debug */,
@@ -330,7 +330,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		31203FF824BFCD4E00B588AE /* Build configuration list for PBXNativeTarget "TCANavigationDemo" */ = {
+		31203FF824BFCD4E00B588AE /* Build configuration list for PBXNativeTarget "DemoApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				31203FF924BFCD4E00B588AE /* Debug */,
