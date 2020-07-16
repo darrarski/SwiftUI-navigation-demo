@@ -26,7 +26,7 @@ struct FirstView: View {
     self._state = State(initialValue: state)
   }
 
-  @State private var state: FirstState
+  @State var state: FirstState
 
   var body: some View {
     List {
@@ -58,11 +58,11 @@ struct SecondState {
 }
 
 struct SecondView: View {
-  @State private var state: SecondState
-
   init(_ state: SecondState) {
     self._state = State(initialValue: state)
   }
+
+  @State var state: SecondState
 
   var body: some View {
     List {
@@ -98,7 +98,7 @@ struct ThirdView: View {
     self._state = State(initialValue: state)
   }
 
-  @State private var state: ThirdState
+  @State var state: ThirdState
 
   var body: some View {
     List {
