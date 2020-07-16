@@ -14,7 +14,7 @@ struct DemoView: View {
 
   var body: some View {
     NavigationView {
-      FirstView(state.firstState)
+      FirstView($state.firstState)
     }
   }
 }
@@ -32,18 +32,22 @@ struct FirstState {
 }
 
 struct FirstView: View {
-  init(_ state: FirstState) {
-    self._state = State(initialValue: state)
+  init(_ state: Binding<FirstState>) {
+    self._state = state
   }
 
-  @State var state: FirstState
+  @Binding var state: FirstState
 
   var body: some View {
     List {
       NavigationLink(
         destination: Group {
           if self.state.secondState != nil {
-            SecondView(self.state.secondState!)
+            SecondView(.init(get: { () -> SecondState in
+              self.state.secondState ?? .init()
+            }, set: { secondState in
+              self.state.secondState = secondState
+            }))
           } else {
             EmptyView()
           }
@@ -68,18 +72,22 @@ struct SecondState {
 }
 
 struct SecondView: View {
-  init(_ state: SecondState) {
-    self._state = State(initialValue: state)
+  init(_ state: Binding<SecondState>) {
+    self._state = state
   }
 
-  @State var state: SecondState
+  @Binding var state: SecondState
 
   var body: some View {
     List {
       NavigationLink(
         destination: Group {
           if self.state.thirdState != nil {
-            ThirdView(self.state.thirdState!)
+            ThirdView(.init(get: { () -> ThirdState in
+              self.state.thirdState ?? .init()
+            }, set: { thirdState in
+              self.state.thirdState = thirdState
+            }))
           } else {
             EmptyView()
           }
@@ -104,18 +112,22 @@ struct ThirdState {
 }
 
 struct ThirdView: View {
-  init(_ state: ThirdState) {
-    self._state = State(initialValue: state)
+  init(_ state: Binding<ThirdState>) {
+    self._state = state
   }
 
-  @State var state: ThirdState
+  @Binding var state: ThirdState
 
   var body: some View {
     List {
       NavigationLink(
         destination: Group {
           if self.state.fourthState != nil {
-            FourthView(self.state.fourthState!)
+            FourthView(.init(get: { () -> FourthState in
+              self.state.fourthState ?? .init()
+            }, set: { fourthState in
+              self.state.fourthState = fourthState
+            }))
           } else {
             EmptyView()
           }
@@ -138,11 +150,11 @@ struct ThirdView: View {
 struct FourthState {}
 
 struct FourthView: View {
-  init(_ state: FourthState) {
-    self._state = State(initialValue: state)
+  init(_ state: Binding<FourthState>) {
+    self._state = state
   }
 
-  @State var state: FourthState
+  @Binding var state: FourthState
 
   var body: some View {
     List {
