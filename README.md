@@ -1,6 +1,6 @@
-# TCA SwiftUI Navigation Demo
+# SwiftUI Navigation Demo
 
-Demo project. Work in progress.
+Demo project which shows how to use `NavigationLink` in SwiftUI.
 
 ## Setup
 
