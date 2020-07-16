@@ -8,7 +8,11 @@ struct Demo_SwiftUI_View: View {
       List {
         NavigationLink(
           destination: SecondView(),
-          isActive: $isPresentingSecondView,
+          isActive: .init(get: {
+            self.isPresentingSecondView
+          }, set: { isActive in
+            self.isPresentingSecondView = isActive
+          }),
           label: { Text("Second View") }
         )
       }.listStyle(GroupedListStyle())
@@ -24,7 +28,11 @@ private struct SecondView: View {
     List {
       NavigationLink(
         destination: ThirdView(),
-        isActive: $isPresentingThirdView,
+        isActive: .init(get: {
+          self.isPresentingThirdView
+        }, set: { isActive in
+          self.isPresentingThirdView = isActive
+        }),
         label: { Text("Third View") }
       )
     }.listStyle(GroupedListStyle())
@@ -39,7 +47,11 @@ private struct ThirdView: View {
     List {
       NavigationLink(
         destination: FourthView(),
-        isActive: $isPresentingFourthView,
+        isActive: .init(get: {
+          self.isPresentingFourthView
+        }, set: { isActive in
+          self.isPresentingFourthView = isActive
+        }),
         label: { Text("Fourth View") }
       )
     }.listStyle(GroupedListStyle())
