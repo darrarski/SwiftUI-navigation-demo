@@ -28,7 +28,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     options connectionOptions: UIScene.ConnectionOptions
   ) {
     guard let windowScene = scene as? UIWindowScene else { return }
-    let view = Demo_SwiftUI_View(.init())
+    let view = DemoView()
     window = UIWindow(windowScene: windowScene)
     window?.rootViewController = UIHostingController(rootView: view)
     window?.makeKeyAndVisible()
