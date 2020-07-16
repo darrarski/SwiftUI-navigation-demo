@@ -1,4 +1,5 @@
 import SwiftUI
+import os.log
 
 struct Demo_SwiftUI_View: View {
   @State private var isPresentingSecondView = false
@@ -11,6 +12,7 @@ struct Demo_SwiftUI_View: View {
           isActive: .init(get: {
             self.isPresentingSecondView
           }, set: { isActive in
+            os_log("Demo_SwiftUI_View.isPresentingSecondView = %@", "\(isActive)")
             self.isPresentingSecondView = isActive
           }),
           label: { Text("Second View") }
@@ -31,6 +33,7 @@ private struct SecondView: View {
         isActive: .init(get: {
           self.isPresentingThirdView
         }, set: { isActive in
+          os_log("SecondView.isPresentingThirdView = %@", "\(isActive)")
           self.isPresentingThirdView = isActive
         }),
         label: { Text("Third View") }
@@ -50,6 +53,7 @@ private struct ThirdView: View {
         isActive: .init(get: {
           self.isPresentingFourthView
         }, set: { isActive in
+          os_log("ThirdView.isPresentingFourthView = %@", "\(isActive)")
           self.isPresentingFourthView = isActive
         }),
         label: { Text("Fourth View") }
