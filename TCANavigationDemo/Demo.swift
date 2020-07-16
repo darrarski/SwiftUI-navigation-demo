@@ -1,10 +1,20 @@
 import SwiftUI
 import os.log
 
+struct DemoState {
+  var firstState: FirstState
+}
+
 struct DemoView: View {
+  @State var state = DemoState(
+    firstState: FirstState(
+      secondState: nil
+    )
+  )
+
   var body: some View {
     NavigationView {
-      FirstView(.init())
+      FirstView(state.firstState)
     }
   }
 }
