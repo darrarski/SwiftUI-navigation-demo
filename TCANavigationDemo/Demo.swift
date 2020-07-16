@@ -97,7 +97,7 @@ struct SecondView: View {
   }
 }
 
-// MARK: - Third State
+// MARK: - Third Screen
 
 struct ThirdState {
   var fourthState: FourthState?
@@ -138,8 +138,8 @@ struct ThirdView: View {
 struct FourthState {}
 
 struct FourthView: View {
-  init(_ viewState: FourthState) {
-    self._state = State(initialValue: viewState)
+  init(_ state: FourthState) {
+    self._state = State(initialValue: state)
   }
 
   @State var state: FourthState
